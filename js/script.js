@@ -113,3 +113,14 @@ function hiddenOnChange() {
   let element = document.querySelector("#section7 div");
   element.style.visibility = "hidden";
 }
+/**
+ * Visible image from link in input text
+ */
+function visibleImage() {
+  let linkImage = document.getElementById("section8-input").value;
+  document.getElementById("section8").innerHTML =
+    "<img src = " +
+    linkImage +
+    ' alt="image" style="width:200px; height=200px;">' +
+    document.getElementById("section8").innerHTML;
+}
