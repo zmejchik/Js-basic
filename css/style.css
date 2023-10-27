@@ -1,0 +1,92 @@
+body{
+    font-size: 25px;
+}
+#section1{
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+}
+#section2{
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    font-size: 25px;
+    margin: 10px;
+}
+#div-task1-1 {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}
+.hidden{
+    display: none;
+
+}
+#section3{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#section3 div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.divSection3{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}
+#section4{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+}
+#section4 div>input{
+    font-size: 25px;
+}
+#section5{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+}
+#section5 div{
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
+#section6{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+}
+#section6 div{
+    width: 50px;
+    height: 50px;
+    visibility:hidden;
+    background-color: red;
+}
+#section7{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+#section7 div{
+    width: 50px;
+    height: 20px;
+    visibility:hidden;
+    background-color: green;    
+}
+#section7 input{
+font-size: 25px;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Task 1</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <section id="section1">
+      <div id="div-task1-1"></div>
+      <div>
+        <button
+          onclick="document.getElementById('task1-1').style.display = 'none';"
+        >
+          CSS (display: none)
+        </button>
+        <button onclick="deleteDiv()">JS (видалення елементу)</button>
+        <button onclick="deleteDivWithCSS()">CSS+JS</button>
+      </div>
+    </section>
+    <hr />
+    <section id="section2">
+      <button onclick="reverseDisplayInSection1()">
+        Visible block or hidden
+      </button>
+    </section>
+    <hr />
+    <section id="section3">
+      <div>
+        <div class="divSection3"></div>
+        <div class="divSection3"></div>
+        <div class="divSection3"></div>
+        <div class="divSection3"></div>
+        <div class="divSection3"></div>
+      </div>
+      <button onclick="reverseDisplayFiveBlocks()">
+        Visible all blocks or hidden
+      </button>
+    </section>
+    <hr />
+    <section id="section4">
+      <div>
+        <input
+          id="section4-input"
+          type="text"
+          placeholder="Please input css selector"
+        />
+      </div>
+      <button onclick="reverseBlocksByCssSelector()">
+        Visible all blocks or hidden with input selector
+      </button>
+    </section>
+    <hr />
+    <section id="section5">
+      <div id="section5-div" onclick="onChangeFunction()"></div>
+    </section>
+    <hr />
+    <section id="section6">
+      <div></div>
+      <button
+        onmouseover="reverseVisibility()"
+        onmouseout="reverseVisibility()"
+      >
+        Visible all blocks or hidden
+      </button>
+    </section>
+    <hr />
+    <section id="section7">
+      <div></div>
+      <input
+        name="section7-input"
+        type="text"
+        placeholder="Input text"
+        onfocus="visibilityOnFokus()"
+        oninput="hiddenOnChange()"
+      />
+    </section>
+    <hr />
+  </body>
+  <script src="js/script.js"></script>
+</html>
