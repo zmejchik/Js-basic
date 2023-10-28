@@ -147,19 +147,20 @@ function visibleImages() {
     "</div>";
 }
 //Section 10 11 12
-navigator.geolocation.getCurrentPosition(success);
-let = latitude;
-let = longitude;
-function success(pos) {
-  let crd = pos.coords;
-  latitude = crd.latitude;
-  longitude = crd.longitude;
-}
+
 window.addEventListener("mousemove", (event) => {
   let X = event.offsetX;
   let Y = event.offsetY;
   let section10Content = "";
   section10Content += "Х:" + X + ", Y:" + Y;
+  navigator.geolocation.getCurrentPosition(success);
+  let = latitude;
+  let = longitude;
+  function success(pos) {
+    let crd = pos.coords;
+    latitude = crd.latitude;
+    longitude = crd.longitude;
+  }
 
   document.getElementById("section10-coordinate-cursor").innerHTML =
     "<div>" +

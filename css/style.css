@@ -138,4 +138,5 @@ button {
     right: 0;
     z-index: 1;
     color:red;
+    border:1px solid green;
 }
