@@ -124,3 +124,25 @@ function visibleImage() {
     ' alt="image" style="width:200px; height=200px;">' +
     document.getElementById("section8").innerHTML;
 }
+/**
+ * Visible images from link in input text
+ */
+function visibleImages() {
+  let linkImages = document.getElementById("section9-textarea").value.trim().split("\n");
+  console.log(linkImages);
+  let section9Content = "";
+  for (let i = 0; i < linkImages.length; i++) {
+    section9Content +=
+      '<img src="' +
+      linkImages[i] +
+      '" alt="image" style="width:200px; height:200px;">';
+  }
+  document.getElementById("section9").innerHTML = '<div id="section9-div-image">' + section9Content + document.getElementById("section9").innerHTML + '</div>';
+}
+window.addEventListener('mousemove', (event) => {
+  let X = event.offsetX;
+  let Y = event.offsetY;
+  let section10Content = "";
+  section10Content += "Х:" + X + ", Y:" + Y;
+  document.getElementById("section10-coordinate-cursor").innerHTML = "<div>" + section10Content + "</div>";
+});
