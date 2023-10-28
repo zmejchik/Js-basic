@@ -146,6 +146,15 @@ function visibleImages() {
     document.getElementById("section9").innerHTML +
     "</div>";
 }
+//Section 10 11 12
+navigator.geolocation.getCurrentPosition(success);
+let = latitude;
+let = longitude;
+function success(pos) {
+  let crd = pos.coords;
+  latitude = crd.latitude;
+  longitude = crd.longitude;
+}
 window.addEventListener("mousemove", (event) => {
   let X = event.offsetX;
   let Y = event.offsetY;
@@ -153,21 +162,13 @@ window.addEventListener("mousemove", (event) => {
   section10Content += "Х:" + X + ", Y:" + Y;
 
   document.getElementById("section10-coordinate-cursor").innerHTML =
-    "<div>" + section10Content + "<br>" + navigator.language + "</div>";
-
-  function success(pos) {
-    var crd = pos.coords;
-    document.getElementById("section10-coordinate-cursor").innerHTML =
-      "<div>" +
-      section10Content +
-      "<br>" +
-      navigator.language +
-      "<br>Ш: " +
-      crd.latitude +
-      ", Д: " +
-      crd.longitude +
-      "</div>";
-  }
-
-  navigator.geolocation.getCurrentPosition(success);
+    "<div>" +
+    section10Content +
+    "<br>" +
+    navigator.language +
+    "<br>Ш: " +
+    latitude +
+    ", Д: " +
+    longitude +
+    "</div>";
 });
