@@ -149,8 +149,8 @@ function visibleImages() {
 //Section 10 11 12
 
 window.addEventListener("mousemove", (event) => {
-  let X = event.offsetX;
-  let Y = event.offsetY;
+  let X = event.clientX;
+  let Y = event.clientY;
   let section10Content = "";
   section10Content += "Х:" + X + ", Y:" + Y;
   navigator.geolocation.getCurrentPosition(success);
