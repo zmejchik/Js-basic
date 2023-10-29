@@ -160,7 +160,7 @@ window.addEventListener("mousemove", (event) => {
   let X = event.clientX;
   let Y = event.clientY;
   let section10Content = "";
-  section10Content += "Х:" + X + ", Y:" + Y; 
+  section10Content += "Х:" + X + ", Y:" + Y;
 
   document.getElementById("section10-coordinate-cursor").innerHTML =
     "<div>" +
@@ -177,20 +177,23 @@ window.addEventListener("mousemove", (event) => {
 /**
  * Function set text from div and saving in localeStorage
  */
-window.onload = function() {
+window.onload = function () {
   loadPages();
 };
 
-function editSection13(){
-  addEventListener("input", function(event) {
-    this.localStorage.setItem("block1", document.getElementById("section13-localStorage").innerText);
-    this.sessionStorage.setItem("block3", document.getElementById("section13-sessionStorage").innerText);
+function loadPages() {
+  addEventListener("input", function (event) {
+    this.localStorage.setItem(
+      "block1",
+      document.getElementById("section13-localStorage").innerText
+    );
+    this.sessionStorage.setItem(
+      "block3",
+      document.getElementById("section13-sessionStorage").innerText
+    );
   });
-}
-
-function loadPages(){
-    let content = localStorage.getItem("block1");
-    document.getElementById("section13-localStorage").innerText = content;
-    content = sessionStorage.getItem("block3");
-    document.getElementById("section13-sessionStorage").innerText = content;
+  let content = localStorage.getItem("block1");
+  document.getElementById("section13-localStorage").innerText = content;
+  content = sessionStorage.getItem("block3");
+  document.getElementById("section13-sessionStorage").innerText = content;
 }
