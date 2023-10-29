@@ -191,9 +191,17 @@ function loadPages() {
       "block3",
       document.getElementById("section13-sessionStorage").innerText
     );
+    let contentBlock2 = document.getElementById("section13-cookies").innerText;
+    if (contentBlock2 != "") {
+      document.cookie = "block2=" + contentBlock2;
+    } else {
+      document.cookie = "block2=";
+    }
   });
   let content = localStorage.getItem("block1");
   document.getElementById("section13-localStorage").innerText = content;
   content = sessionStorage.getItem("block3");
   document.getElementById("section13-sessionStorage").innerText = content;
+  document.getElementById("section13-cookies").innerText =
+    document.cookie.split("=")[1];
 }
