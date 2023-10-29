@@ -140,3 +140,24 @@ button {
     color:red;
     border:1px solid green;
 }
+#section13{
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+#section13-localStorage{
+    background-color: bisque;
+    width: 30%;
+    
+}
+#section13-cookies{
+    background-color: bisque;
+    width: 30%;
+    
+}
+#section13-sessionStorage{
+    background-color: bisque;
+    width: 30%;
+    
+}

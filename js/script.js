@@ -147,20 +147,20 @@ function visibleImages() {
     "</div>";
 }
 //Section 10 11 12
+navigator.geolocation.getCurrentPosition(success);
+let latitude;
+let longitude;
+function success(pos) {
+  let crd = pos.coords;
+  latitude = crd.latitude;
+  longitude = crd.longitude;
+}
 
 window.addEventListener("mousemove", (event) => {
   let X = event.clientX;
   let Y = event.clientY;
   let section10Content = "";
-  section10Content += "Х:" + X + ", Y:" + Y;
-  navigator.geolocation.getCurrentPosition(success);
-  let = latitude;
-  let = longitude;
-  function success(pos) {
-    let crd = pos.coords;
-    latitude = crd.latitude;
-    longitude = crd.longitude;
-  }
+  section10Content += "Х:" + X + ", Y:" + Y; 
 
   document.getElementById("section10-coordinate-cursor").innerHTML =
     "<div>" +
@@ -173,3 +173,22 @@ window.addEventListener("mousemove", (event) => {
     longitude +
     "</div>";
 });
+//Section 13
+/**
+ * Function set text from div and saving in localeStorage
+ */
+window.onload = function() {
+  loadPages();
+};
+
+function editSection13LocalStorage(){
+  addEventListener("input", function(event) {
+    this.localStorage.setItem("block1", document.getElementById("section13-localStorage").innerText);
+  });
+}
+
+function loadPages(){
+    let content = localStorage.getItem("block1");
+    console.log(content);
+    document.getElementById("section13-localStorage").innerText = content;
+}
