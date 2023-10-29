@@ -195,7 +195,7 @@ function loadPages() {
     if (contentBlock2 != "") {
       document.cookie = "block2=" + contentBlock2;
     } else {
-      document.cookie = "block2=";
+      document.cookie = "block2="+"";
     }
   });
   let content = localStorage.getItem("block1");
