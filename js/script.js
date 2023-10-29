@@ -181,14 +181,16 @@ window.onload = function() {
   loadPages();
 };
 
-function editSection13LocalStorage(){
+function editSection13(){
   addEventListener("input", function(event) {
     this.localStorage.setItem("block1", document.getElementById("section13-localStorage").innerText);
+    this.sessionStorage.setItem("block3", document.getElementById("section13-sessionStorage").innerText);
   });
 }
 
 function loadPages(){
     let content = localStorage.getItem("block1");
-    console.log(content);
     document.getElementById("section13-localStorage").innerText = content;
+    content = sessionStorage.getItem("block3");
+    document.getElementById("section13-sessionStorage").innerText = content;
 }
