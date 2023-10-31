@@ -205,3 +205,17 @@ function loadPages() {
   document.getElementById("section13-cookies").innerText =
     document.cookie.split("=")[1];
 }
+/**section14 */
+window.addEventListener("scroll",function(){
+  let positionCursor = window.scrollY;
+  let pageHeight = this.document.pageHeight - window.innerHeight;
+  console.log("1");
+  if (positionCursor >= pageHeight*2){
+    this.document.getElementById("section14HideButton").style.display="none";
+    console.log("2");
+  }
+  else{
+    this.document.getElementById("section14HideButton").style.display="flex";
+    console.log("3");
+  }
+})

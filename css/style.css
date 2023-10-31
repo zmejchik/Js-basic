@@ -161,3 +161,18 @@ button {
     width: 30%;
     
 }
+#section14{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+#section14HideButton{
+    text-align: center;
+    width:400px;
+    height: 50px;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+}
