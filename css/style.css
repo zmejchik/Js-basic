@@ -174,5 +174,26 @@ button {
     display: none;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    bottom: 0;
     
+}
+#section15{
+    display: flex;
+    margin: auto;
+    width:300px;
+    height: 300px;
+    
+}
+#section15 #section15-parent-div{
+    width: 100%;
+    height: 100%;
+    background-color: aquamarine;
+}
+#section15 #section15-child-div{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    margin: auto;
+    background-color:bisque;
 }

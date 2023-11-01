@@ -195,7 +195,7 @@ function loadPages() {
     if (contentBlock2 != "") {
       document.cookie = "block2=" + contentBlock2;
     } else {
-      document.cookie = "block2="+"";
+      document.cookie = "block2=" + "";
     }
   });
   let content = localStorage.getItem("block1");
@@ -206,16 +206,22 @@ function loadPages() {
     document.cookie.split("=")[1];
 }
 /**section14 */
-window.addEventListener("scroll",function(){
+window.addEventListener("scroll", function () {
   let positionCursor = window.scrollY;
-  let pageHeight = this.document.pageHeight - window.innerHeight;
-  console.log("1");
-  if (positionCursor >= pageHeight*2){
-    this.document.getElementById("section14HideButton").style.display="none";
-    console.log("2");
+  let pageHeight = positionCursor + window.innerHeight;
+  if (pageHeight <= document.body.offsetHeight) {
+    this.document.getElementById("section14HideButton").style.display = "none";
+  } else {
+    this.document.getElementById("section14HideButton").style.display = "flex";
   }
-  else{
-    this.document.getElementById("section14HideButton").style.display="flex";
-    console.log("3");
-  }
+});
+
+function scrollUpPage() {
+  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+}
+/**
+ * section15
+ */
+document.getElementById('section15-child-div').addEventListener('click', function(event){
+  event.stopPropagation(); //заборона винурення
 })

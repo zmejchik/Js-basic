@@ -107,7 +107,22 @@
       <div id="section13-sessionStorage" contenteditable="true"></div>
     </section>
     <section id="section14">
-      <button id="section14HideButton">Повернутись нагору</button>
+      <button onclick="scrollUpPage()" id="section14HideButton">
+        Повернутись нагору
+      </button>
+    </section>
+    <hr />
+    <section id="section15">
+      <div
+        id="section15-parent-div"
+        onclick="alert('section15 alert for click on div parent');"
+      >
+        <div
+          id="section15-child-div"
+          onclick="alert('section15 alert for click on div child');"
+        ></div>
+
+      </div>
     </section>
   </body>
   <script src="js/script.js"></script>
