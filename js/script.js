@@ -222,6 +222,30 @@ function scrollUpPage() {
 /**
  * section15
  */
-document.getElementById('section15-child-div').addEventListener('click', function(event){
-  event.stopPropagation(); //заборона винурення
-})
+document
+  .getElementById("section15-child-div")
+  .addEventListener("click", function (event) {
+    event.stopPropagation(); //заборона винурення
+  });
+/**
+ * section 16
+ */
+
+let overlay = document.getElementsByClassName("section16-div")[0];
+function abortScrole() {  
+  overlay.style.display = "block";
+  window.onscroll = () => {
+    let styleDivVisibility = overlay.style.display;
+    if (styleDivVisibility == "block") {
+      //document.body.style.overflow = 'hidden';
+      //window.scroll({ top: 0, left: 0, behavior: "auto" });
+      document.body.style.height = "100vh";
+      document.body.style.overflow = "hidden";
+    }
+  };
+}
+function switchOnScrole() {
+  document.body.style.height = "auto";
+  document.body.style.overflow = "auto";
+  overlay.style.display = "none";
+}

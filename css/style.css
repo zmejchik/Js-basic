@@ -107,68 +107,80 @@ button {
 #section7 input {
     font-size: 25px;
 }
+
 #section8 {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#section8 input{
+
+#section8 input {
     font-size: 25px;
 }
+
 #section9 {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#section9 textarea{
+
+#section9 textarea {
     width: 100%;
     height: 100px;
     font-size: 25px;
 }
-#section9-div-image{
+
+#section9-div-image {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-#section10-coordinate-cursor{
-    display: flex;    
+
+#section10-coordinate-cursor {
+    display: flex;
     position: fixed;
     top: 0;
     right: 0;
     z-index: 1;
-    color:red;
-    border:1px solid green;
+    color: red;
+    border: 1px solid green;
 }
-#section13{
+
+#section13 {
     height: 200px;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
 }
-#section13-localStorage{
+
+#section13-localStorage {
     background-color: bisque;
     width: 30%;
-    
+
 }
-#section13-cookies{
+
+#section13-cookies {
     background-color: bisque;
     width: 30%;
-    
+
 }
-#section13-sessionStorage{
+
+#section13-sessionStorage {
     background-color: bisque;
     width: 30%;
-    
+
 }
-#section14{
+
+#section14 {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
 }
-#section14HideButton{
+
+#section14HideButton {
     text-align: center;
-    width:400px;
+    width: 400px;
     height: 50px;
     cursor: pointer;
     display: none;
@@ -176,24 +188,46 @@ button {
     align-items: center;
     position: fixed;
     bottom: 0;
-    
+
 }
-#section15{
+
+#section15 {
     display: flex;
     margin: auto;
-    width:300px;
+    width: 300px;
     height: 300px;
-    
+
 }
-#section15 #section15-parent-div{
+
+#section15 #section15-parent-div {
     width: 100%;
     height: 100%;
     background-color: aquamarine;
 }
-#section15 #section15-child-div{
+
+#section15 #section15-child-div {
     width: 50%;
     height: 50%;
     display: flex;
     margin: auto;
-    background-color:bisque;
+    background-color: bisque;
+}
+
+#section16 {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 100px;
+
+}
+
+.section16-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: grey;
+    opacity: 0.9;
+    display: none;
 }
