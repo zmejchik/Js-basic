@@ -217,7 +217,6 @@ button {
     display: flex;
     justify-content: center;
     margin: auto;
-    margin-bottom: 100px;
 
 }
 
@@ -230,4 +229,11 @@ button {
     background-color: grey;
     opacity: 0.9;
     display: none;
+}
+#section17 {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 100px;
+
 }
