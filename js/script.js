@@ -249,3 +249,29 @@ function switchOnScrole() {
   document.body.style.overflow = "auto";
   overlay.style.display = "none";
 }
+/**
+ * section 18
+ */
+const droparea= document.getElementsByClassName("droparea")[0];
+const dropSection = document.getElementById("section18");
+droparea.addEventListener("dragover", (event)=>{
+  event.preventDefault();
+  droparea.classList.add("hover");
+  dropSection.classList.add("hover");
+})
+droparea.addEventListener("dragleave",()=>{
+  droparea.classList.remove("hover");
+  dropSection.classList.remove("hover");
+})
+droparea.addEventListener("drop", (event)=>{
+  droparea.classList.remove("hover");
+  dropSection.classList.remove("hover");
+  droparea.classList.add("fileDropped");
+  dropSection.classList.add("fileDropped");
+})
+droparea.addEventListener("change", (event)=>{
+  droparea.classList.remove("hover");
+  dropSection.classList.remove("hover");
+  droparea.classList.add("fileDropped");
+  dropSection.classList.add("fileDropped");
+})
