@@ -303,3 +303,7 @@ button {
     border: 1px solid rgba(70, 48, 203, 0.3);
 
 }
+#section18 span{
+    position: relative;
+    top: -150px;
+}
