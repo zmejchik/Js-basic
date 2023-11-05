@@ -254,24 +254,35 @@ function switchOnScrole() {
  */
 const droparea= document.getElementsByClassName("droparea")[0];
 const dropSection = document.getElementById("section18");
+const dropLabel = document.getElementsByClassName("section18-label")[0];
 droparea.addEventListener("dragover", (event)=>{
   event.preventDefault();
   droparea.classList.add("hover");
   dropSection.classList.add("hover");
+  dropLabel.classList.add("hover");
 })
 droparea.addEventListener("dragleave",()=>{
   droparea.classList.remove("hover");
   dropSection.classList.remove("hover");
+  dropLabel.classList.remove("hover");
 })
 droparea.addEventListener("drop", (event)=>{
   droparea.classList.remove("hover");
   dropSection.classList.remove("hover");
+
   droparea.classList.add("fileDropped");
   dropSection.classList.add("fileDropped");
 })
 droparea.addEventListener("change", (event)=>{
   droparea.classList.remove("hover");
   dropSection.classList.remove("hover");
+  droparea.classList.remove("hover");
+
   droparea.classList.add("fileDropped");
   dropSection.classList.add("fileDropped");
+  dropLabel.classList.add("fileDropped");
+
+  let fullPath = droparea.value;
+  arrayPath = fullPath.split(/\\|\//);
+  document.getElementsByTagName("span")[0].innerText ="Your selected file => " + arrayPath[arrayPath.length-1];
 })
