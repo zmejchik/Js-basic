@@ -1,39 +1,54 @@
 /**
  * function delted div by id
  */
-function deleteDiv() {
-  let divTask1 = document.getElementById("div-task1-1");
+function deleteDiv(idDiv) {
+  let divTask1 = document.getElementById(idDiv);
+  if (!divTask1) {
+    throw new Error(`Element with id "${idDiv}" not found`);
+  }
   divTask1.remove();
 }
 /**
  * function hidden div by id
  */
-function deleteDivWithCSS() {
-  let divTask1 = document.getElementById("div-task1-1");
+function deleteDivWithCSS(idDiv) {
+  let divTask1 = document.getElementById(idDiv);
+  if (!divTask1) {
+    throw new Error(`Element with id "${idDiv}" not found`);
+  }
   divTask1.className = "hidden";
+  divTask1.style.display = "none";
 }
 /**
  * function reverse style css display:hidden or display not hidden
  */
-function reverseDisplayInSection1() {
-  let divTask1 = document.getElementById("div-task1-1");
-  if (divTask1.className == "hidden") {
-    divTask1.className = "";
+function reverseDisplayInSection(idDiv) {
+  let divTask = document.getElementById(idDiv);
+  if (!divTask) {
+    document.getElementById("section1").innerHTML =
+      `<div id='${idDiv}'></div>` +
+      document.getElementById("section1").innerHTML;
+    divTask = document.getElementById(idDiv);
+  }
+  if (divTask.className == "hidden" || divTask.style.display == "none") {
+    divTask.className = "";
+    divTask.style.display = "block";
   } else {
-    divTask1.className = "hidden";
+    divTask.className = "hidden";
+    divTask.style.display = "none";
   }
 }
 /**
  * function reverse style css display:hidden or display not hidden
  * with selected div by class
  */
-function reverseDisplayFiveBlocks() {
-  let divTask3 = document.getElementsByClassName("divSection3");
-  for (let i = 0; i < divTask3.length; i++) {
-    if (divTask3[i].style.display == "none") {
-      divTask3[i].style.display = "";
+function reverseDisplayAllBlocksWithClassName(classDiv) {
+  let divTask = document.getElementsByClassName(classDiv);
+  for (let i = 0; i < divTask.length; i++) {
+    if (divTask[i].style.display == "none") {
+      divTask[i].style.display = "";
     } else {
-      divTask3[i].style.display = "none";
+      divTask[i].style.display = "none";
     }
   }
 }
@@ -80,10 +95,11 @@ function reverseDisplay(id) {
 /**
  * Function view alert and change function for event onClick
  */
-function onChangeFunction() {
+function onChangeFunction(idElement) {
   alert("Привіт");
-  document.getElementById("section5").innerHTML =
-    '<div id="section5-div" onclick="removeSquare()"></div>';
+  document.getElementById(
+    idElement
+  ).innerHTML = `<div id="section5-div" onclick='removeSquare(${idElement})'></div>`;
 }
 function removeSquare() {
   document.getElementById("section5").innerHTML = "";
@@ -91,8 +107,8 @@ function removeSquare() {
 /**
  * Function visibility onmove mouse over button
  */
-function reverseVisibility() {
-  let element = document.querySelector("#section6 div");
+function reverseVisibility(divInSection) {
+  let element = document.querySelector(divInSection);
   if (element.style.visibility == "visible") {
     element.style.visibility = "hidden";
   } else {
@@ -102,49 +118,79 @@ function reverseVisibility() {
 /**
  * Function visibility onfocus mouse on input
  */
-function visibilityOnFokus() {
-  let element = document.querySelector("#section7 div");
+function visibilityOnFokus(divInSection) {
+  let element = document.querySelector(divInSection);
   element.style.visibility = "visible";
 }
 /**
  * Function hidden onchange text on input
  */
-function hiddenOnChange() {
-  let element = document.querySelector("#section7 div");
+function hiddenOnChange(divInSection) {
+  let element = document.querySelector(divInSection);
   element.style.visibility = "hidden";
 }
 /**
  * Visible image from link in input text
  */
-function visibleImage() {
-  let linkImage = document.getElementById("section8-input").value;
-  document.getElementById("section8").innerHTML =
-    "<img src = " +
-    linkImage +
-    ' alt="image" style="width:200px; height=200px;">' +
-    document.getElementById("section8").innerHTML;
+function visibleImage(link, section) {
+  let linkImage = document.getElementById(link).value;
+  if (!linkImage) {
+    alert(`Element with link "${linkImage}" not found`);
+  } else {
+    let img = document.createElement("img");
+    img.src = linkImage;
+    img.onload = function () {
+      document.getElementById(section).innerHTML =
+        "<img src = " +
+        linkImage +
+        ' alt="image" style="width:200px; height=200px;" >' +
+        document.getElementById(section).innerHTML;
+    };
+    img.onerror = function () {
+      alert("Image not found");
+    };
+  }
 }
 /**
  * Visible images from link in input text
  */
+
 function visibleImages() {
   let linkImages = document
     .getElementById("section9-textarea")
     .value.trim()
     .split("\n");
-  console.log(linkImages);
   let section9Content = "";
+  let loadedImagesCount = 0;
   for (let i = 0; i < linkImages.length; i++) {
-    section9Content +=
-      '<img src="' +
-      linkImages[i] +
-      '" alt="image" style="width:200px; height:200px;">';
+    let img = document.createElement("img");
+    img.src = linkImages[i];
+    img.onload = function () {
+      section9Content +=
+        '<img src="' +
+        linkImages[i] +
+        '" alt="image" style="width:200px; height:200px;">';
+      loadedImagesCount++;
+      if (loadedImagesCount === linkImages.length) {
+        // All images have loaded, update the content
+        document.getElementById("section9").innerHTML =
+          `<div id="section9-div-image"> ${section9Content} ` +
+          "</div>" +
+          document.getElementById("section9").innerHTML;
+      }
+    };
+    img.onerror = function () {
+      console.log(`image with link = ${linkImages[i]} not found`);
+      loadedImagesCount++;
+      if (loadedImagesCount === linkImages.length) {
+        // All images have loaded, update the content
+        document.getElementById("section9").innerHTML =
+          `<div id="section9-div-image"> ${section9Content} ` +
+          "</div>" +
+          document.getElementById("section9").innerHTML;
+      }
+    };
   }
-  document.getElementById("section9").innerHTML =
-    '<div id="section9-div-image">' +
-    section9Content +
-    document.getElementById("section9").innerHTML +
-    "</div>";
 }
 //Section 10 11 12
 navigator.geolocation.getCurrentPosition(success);
@@ -193,7 +239,7 @@ function loadPages() {
     );
     let contentBlock2 = document.getElementById("section13-cookies").innerText;
     if (contentBlock2 != "") {
-      document.cookie = "block2=" + contentBlock2;
+      document.cookie = "block2=" + contentBlock2 + ";max-age=3600";
     } else {
       document.cookie = "block2=" + "";
     }
@@ -232,7 +278,7 @@ document
  */
 
 let overlay = document.getElementsByClassName("section16-div")[0];
-function abortScrole() {  
+function abortScrole() {
   overlay.style.display = "block";
   window.onscroll = () => {
     let styleDivVisibility = overlay.style.display;
@@ -252,28 +298,28 @@ function switchOnScrole() {
 /**
  * section 18
  */
-const droparea= document.getElementsByClassName("droparea")[0];
+const droparea = document.getElementsByClassName("droparea")[0];
 const dropSection = document.getElementById("section18");
 const dropLabel = document.getElementsByClassName("section18-label")[0];
-droparea.addEventListener("dragover", (event)=>{
+droparea.addEventListener("dragover", (event) => {
   event.preventDefault();
   droparea.classList.add("hover");
   dropSection.classList.add("hover");
   dropLabel.classList.add("hover");
-})
-droparea.addEventListener("dragleave",()=>{
+});
+droparea.addEventListener("dragleave", () => {
   droparea.classList.remove("hover");
   dropSection.classList.remove("hover");
   dropLabel.classList.remove("hover");
-})
-droparea.addEventListener("drop", (event)=>{
+});
+droparea.addEventListener("drop", (event) => {
   droparea.classList.remove("hover");
   dropSection.classList.remove("hover");
 
   droparea.classList.add("fileDropped");
   dropSection.classList.add("fileDropped");
-})
-droparea.addEventListener("change", (event)=>{
+});
+droparea.addEventListener("change", (event) => {
   droparea.classList.remove("hover");
   dropSection.classList.remove("hover");
   droparea.classList.remove("hover");
@@ -284,5 +330,6 @@ droparea.addEventListener("change", (event)=>{
 
   let fullPath = droparea.value;
   arrayPath = fullPath.split(/\\|\//);
-  document.getElementsByTagName("span")[0].innerText ="Your selected file => " + arrayPath[arrayPath.length-1];
-})
+  document.getElementsByTagName("span")[0].innerText =
+    "Your selected file => " + arrayPath[arrayPath.length - 1];
+});

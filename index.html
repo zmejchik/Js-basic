@@ -8,25 +8,41 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
   <body>
+    <!--Create a div on the page, give it some expressive id, make it such 
+      styles that it looks like a black square 100x100 px. Add a button to 
+      the page, after clicking on this button the block should disappear. 
+      Disappearance must be done in all three ways (a separate button for each 
+      method): 
+      CSS (display: none), i.e. simply overlay the style on the element
+      JS (delete element)
+      CSS+JS (hang the hidden class on the element, and write such styles in 
+      the CSS so that they hide everything with the hidden class)-->
     <section id="section1">
       <div id="div-task1-1"></div>
       <div>
         <button
-          onclick="document.getElementById('task1-1').style.display = 'none';"
+          onclick="document.getElementById('div-task1-1').style.display = 'none';"
         >
           CSS (display: none)
         </button>
-        <button onclick="deleteDiv()">JS (видалення елементу)</button>
-        <button onclick="deleteDivWithCSS()">CSS+JS</button>
+        <button onclick="deleteDiv('div-task1-1')">
+          JS (видалення елементу)
+        </button>
+        <button onclick="deleteDivWithCSS('div-task1-1')">CSS+JS</button>
       </div>
     </section>
     <hr />
+    <!--Add a button and make it so that when you click on the button, the block 
+      disappears, if it is present, and appears, if it was hidden (CSS+JS method).-->
     <section id="section2">
-      <button onclick="reverseDisplayInSection1()">
+      <button onclick="reverseDisplayInSection('div-task1-1')">
         Visible block or hidden
       </button>
     </section>
     <hr />
+    <!--Make 5 such blocks on the page, give them all the same class, thanks to which 
+      they will all start to look like black squares. Make them all hide/appear at 
+      the same time when a button is pressed.-->
     <section id="section3">
       <div>
         <div class="divSection3"></div>
@@ -35,11 +51,14 @@
         <div class="divSection3"></div>
         <div class="divSection3"></div>
       </div>
-      <button onclick="reverseDisplayFiveBlocks()">
+      <button onclick="reverseDisplayAllBlocksWithClassName('divSection3')">
         Visible all blocks or hidden
       </button>
     </section>
     <hr />
+    <!--Add an input to the page in which you can enter a css selector (query selector) 
+      and when you click on the button, those elements that correspond to this selector 
+      will be hidden/appeared.-->
     <section id="section4">
       <div>
         <input
@@ -53,31 +72,52 @@
       </button>
     </section>
     <hr />
+    <!--
+      Add a yellow square to the page, and make it so that when you click on it for 
+      the first time, the inscription "Hello" (alert) is displayed, and when you click 
+      it the second time, this square disappears (you need to change the handler 
+      function, delete the first one and put the second one)
+    -->
     <section id="section5">
-      <div id="section5-div" onclick="onChangeFunction()"></div>
+      <div id="section5-div" onclick="onChangeFunction('section5')"></div>
     </section>
     <hr />
+    <!--
+      Add a red square 50x50 px to the page, which will appear as soon as a person moves 
+      the cursor over the button, and hide when the person removes the cursor from 
+      the button
+    -->
     <section id="section6">
       <div></div>
       <button
-        onmouseover="reverseVisibility()"
-        onmouseout="reverseVisibility()"
+        onmouseover="reverseVisibility('#section6 div')"
+        onmouseout="reverseVisibility('#section6 div')"
       >
-        Visible all blocks or hidden
+        Visible block or hidden after mouse over
       </button>
     </section>
     <hr />
+    <!--
+      Add a 50x20 px green rectangle to the page, which will appear as soon as a 
+      person focuses on the input and disappear as soon as the person starts writing 
+      text in this input.
+    -->
     <section id="section7">
       <div></div>
       <input
         name="section7-input"
         type="text"
         placeholder="Input text"
-        onfocus="visibilityOnFokus()"
-        oninput="hiddenOnChange()"
+        onfocus="visibilityOnFokus('#section7 div')"
+        oninput="hiddenOnChange('#section7 div')"
       />
     </section>
     <hr />
+    <!--
+      Add an input and a button to the page. If you put a link in the input and 
+      click on the button, then the image obtained by the link entered in the 
+      input will appear on the page.
+    -->
     <section id="section8">
       <input
         id="section8-input"
@@ -85,11 +125,17 @@
         type="text"
         placeholder="Input link on image"
       />
-      <button onclick="visibleImage()">
+      <button onclick="visibleImage('section8-input', 'section8')">
         Add image on screen and visible her
       </button>
     </section>
     <hr />
+    <!--
+      Convert the input to a textarea in which you can enter links, each on a 
+      new line. When you click on the button, as many pictures will appear 
+      on the page as there are links entered in the textarea (pictures are 
+      taken from links).
+    -->
     <section id="section9">
       <textarea id="section9-textarea" name="section9-input"> </textarea>
       <button onclick="visibleImages()">
@@ -139,9 +185,9 @@
     <hr />
     <section id="section18">
       <label class="section18-label">
-        <input class="droparea" type="file" required/>
+        <input class="droparea" type="file" required />
         <span>Select a file</span>
-      </label>      
+      </label>
     </section>
   </body>
   <script src="js/script.js"></script>
