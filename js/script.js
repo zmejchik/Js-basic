@@ -192,7 +192,10 @@ function visibleImages() {
     };
   }
 }
-//Section 10 11 12
+/**
+ * Function Get position mouse pointer, language in browser and geographik location
+ * after view this information in browser
+ */
 navigator.geolocation.getCurrentPosition(success);
 let latitude;
 let longitude;
@@ -221,7 +224,7 @@ window.addEventListener("mousemove", (event) => {
 });
 //Section 13
 /**
- * Function set text from div and saving in localeStorage
+ * Function set text from div and saving in localeStorage, session storage and with coockies
  */
 window.onload = function () {
   loadPages();
@@ -229,14 +232,17 @@ window.onload = function () {
 
 function loadPages() {
   addEventListener("input", function (event) {
+    //after input text in block, save information or update in localStorage
     this.localStorage.setItem(
       "block1",
       document.getElementById("section13-localStorage").innerText
     );
+    //after input text in block, save information or update in sessionStorage
     this.sessionStorage.setItem(
       "block3",
       document.getElementById("section13-sessionStorage").innerText
     );
+    //after input text in block, save information or update in coockie
     let contentBlock2 = document.getElementById("section13-cookies").innerText;
     if (contentBlock2 != "") {
       document.cookie = "block2=" + contentBlock2 + ";max-age=3600";
@@ -244,29 +250,38 @@ function loadPages() {
       document.cookie = "block2=" + "";
     }
   });
+  //if nothing not change get information with stroages and coockies and set in divs
   let content = localStorage.getItem("block1");
   document.getElementById("section13-localStorage").innerText = content;
   content = sessionStorage.getItem("block3");
   document.getElementById("section13-sessionStorage").innerText = content;
-  document.getElementById("section13-cookies").innerText =
-    document.cookie.split("=")[1];
+  //check if the cookie exists and if exist set value in block 2
+  let cookies = document.cookie.split(";").map((cookie) => cookie.trim());
+  let block2Cookie = cookies.find((cookie) => cookie.startsWith("block2="));
+  if (block2Cookie) {
+    document.getElementById("section13-cookies").innerText =
+      document.cookie.split("=")[1];
+  }  
 }
-/**section14 */
+/**section14
+ * Visible button after scroll end pages
+ */
 window.addEventListener("scroll", function () {
-  let positionCursor = window.scrollY;
-  let pageHeight = positionCursor + window.innerHeight;
+  let positionCursor = window.scrollY; //current position cursor
+  let pageHeight = positionCursor + window.innerHeight; //height visible part pages
   if (pageHeight <= document.body.offsetHeight) {
     this.document.getElementById("section14HideButton").style.display = "none";
   } else {
     this.document.getElementById("section14HideButton").style.display = "flex";
   }
 });
-
+//Function scroll pages to top
 function scrollUpPage() {
   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 }
 /**
  * section15
+ * Function stopping Propagation for child after click
  */
 document
   .getElementById("section15-child-div")
@@ -275,6 +290,7 @@ document
   });
 /**
  * section 16
+ * Function abort scrole and set grey block on screen
  */
 
 let overlay = document.getElementsByClassName("section16-div")[0];
@@ -290,6 +306,7 @@ function abortScrole() {
     }
   };
 }
+// function swith on scrole and hide grey block
 function switchOnScrole() {
   document.body.style.height = "auto";
   document.body.style.overflow = "auto";
@@ -297,6 +314,9 @@ function switchOnScrole() {
 }
 /**
  * section 18
+ * This section code makeing it change beautifully when you drag a file to
+ * this input (drag-n-drop).
+ * And when the file is already selected, too.
  */
 const droparea = document.getElementsByClassName("droparea")[0];
 const dropSection = document.getElementById("section18");

@@ -143,21 +143,46 @@
       </button>
     </section>
     <hr />
+    <!--
+      * Make a block in the upper right corner of the page, in which the cursor 
+      coordinates will be displayed in the "X: 123, Y: 984" format (updated in realtime)
+      * Add information about the language selected in the user's browser to the 
+      block in the upper right corner
+      * Add to the block in the upper right corner a display of the latitude and 
+      longitude at which the person is located (format: "W: 34.23234, D: 78.239482034").
+    -->
     <section id="section10-coordinate-cursor">
       <div></div>
     </section>
     <hr />
+    <!--
+      Add three blocks to the page and make the text inside them editable as in the 
+      input (but so that it is not native input). What a person enters into these "inputs" 
+      must remain in them when the page is reloaded (onload event).
+      - for the first use localStorage
+      - for the second, use cookies
+      - for the third, use sessionStorage
+    -->
     <section id="section13">
       <div id="section13-localStorage" contenteditable="true"></div>
       <div id="section13-cookies" contenteditable="true"></div>
       <div id="section13-sessionStorage" contenteditable="true"></div>
     </section>
+    <!--
+      Make a button that appears when we have already scrolled down the screen and by 
+      clicking on which person smoothly throws the page to the top.
+    -->
     <section id="section14">
       <button onclick="scrollUpPage()" id="section14HideButton">
         Повернутись нагору
       </button>
     </section>
     <hr />
+    <!--
+      Make two blocks, one inside the other. Hang a click listener on each of them, 
+      which causes an alert. Make it so that when you click on the small one, 
+      only one alert is triggered.
+    -->
     <section id="section15">
       <div
         id="section15-parent-div"
@@ -170,6 +195,11 @@
       </div>
     </section>
     <hr />
+    <!--
+      Make a button, when you press it, a translucent gray square appears on 
+      the entire screen and you can't scroll the page until it hides. 
+      Hide a square after clicking on it.
+    -->
     <section id="section16">
       <div class="section16-div" onclick="switchOnScrole()"></div>
       <button onclick="abortScrole()">
@@ -177,12 +207,20 @@
       </button>
     </section>
     <hr />
+    <!--
+      Make sure that the page does not reload when you click the "GO" button.
+    -->
     <section id="section17">
       <form onsubmit="return false;">
-        <input type="submit" value="GO" />
+        <input type="submit" value="GO" style="cursor: pointer;"/>
       </form>
     </section>
     <hr />
+    <!--
+      Make a good input type="file". Make it change beautifully when you 
+      drag a file to this input (drag-n-drop). And when the file is already 
+      selected, too.
+    -->
     <section id="section18">
       <label class="section18-label">
         <input class="droparea" type="file" required />
