@@ -18,7 +18,7 @@ function parseSCV(textCSV) {
       return {
         x: `${arrSplitting[0]}`,
         y: `${arrSplitting[1]}`,
-        name: `${arrSplitting[2]}`,
+        name: `${arrSplitting[2].replace("#","")}`,
         population: `${arrSplitting[3]}`,
       };
     })
