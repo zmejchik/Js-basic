@@ -1,5 +1,5 @@
 /**
- * function delted div by id
+ * function deleted div by id
  */
 function deleteDiv(idDiv) {
   let divTask1 = document.getElementById(idDiv);
@@ -184,10 +184,12 @@ function visibleImages() {
       loadedImagesCount++;
       if (loadedImagesCount === linkImages.length) {
         // All images have loaded, update the content
-        document.getElementById("section9").innerHTML =
-          `<div id="section9-div-image"> ${section9Content} ` +
-          "</div>" +
-          document.getElementById("section9").innerHTML;
+        if (section9Content != "") {
+          document.getElementById("section9").innerHTML =
+            `<div id="section9-div-image"> ${section9Content} ` +
+            "</div>" +
+            document.getElementById("section9").innerHTML;
+        }
       }
     };
   }
@@ -222,6 +224,7 @@ window.addEventListener("mousemove", (event) => {
     longitude +
     "</div>";
 });
+
 //Section 13
 /**
  * Function set text from div and saving in localeStorage, session storage and with coockies
@@ -261,7 +264,7 @@ function loadPages() {
   if (block2Cookie) {
     document.getElementById("section13-cookies").innerText =
       document.cookie.split("=")[1];
-  }  
+  }
 }
 /**section14
  * Visible button after scroll end pages
