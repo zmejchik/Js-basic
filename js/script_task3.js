@@ -26,16 +26,41 @@ function parseSCV(textCSV) {
       return Number(b.population) - Number(a.population);
     })
     .slice(0, 10)
-    .reduce((accumulator,currentValue,index)=>{
-      accumulator[currentValue.name] = {population: currentValue.population, rating: index+1};
+    .reduce((accumulator, currentValue, index) => {
+      accumulator[currentValue.name] = {
+        population: currentValue.population,
+        rating: index + 1,
+      };
       return accumulator;
-  }, {});
-
-  return result;//i will add lambda function 
+    }, {});
+  console.log(result);
+  //lambda function
+  return (textForReplace) => {
+    const keys = Object.keys(result);
+    keys.forEach((text) => {
+      if (textForReplace.includes(text)) {
+        let lastDigitInPopulation = Number(result[text].population.slice(-1));
+        console.log(result[text]);
+        textForReplace = textForReplace.replace(
+          text,
+          text +
+            " (" +
+            result[text].rating +
+            " місце в ТОП-10 найбільших міст України, населення " +
+            result[text].population +
+            (lastDigitInPopulation >= 5 || lastDigitInPopulation === 0
+              ? " людей) "
+              : lastDigitInPopulation >= 2
+              ? " людини) "
+              : " людина) ")
+        );
+      }
+    });
+    return textForReplace;
+  }; //i will add lambda function
 }
 
-const result = parseSCV(textCSV);
-console.log(result);
+console.log(parseSCV(textCSV)("Вінниця це місто в якому я був"));
 /* 
 .reduce((accumulator, currentValue, index) => {
       return (
@@ -65,7 +90,6 @@ console.log(result);
       "\n"
     );
   }, ""); */
-
 
 /* Послідовність дій під час вирішення завдання:
 розбити весь рядок на масив рядків за переходами на новий рядок (split). 
