@@ -222,7 +222,7 @@ window.addEventListener("mousemove", (event) => {
     latitude +
     ", Д: " +
     longitude +
-    "</div>";
+    "<div class='enjoy-css' style='font-size: 14px;'>Task 10 11 12</div></div>";
 });
 
 //Section 13
