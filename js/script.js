@@ -272,10 +272,10 @@ function loadPages() {
 window.addEventListener("scroll", function () {
   let positionCursor = window.scrollY; //current position cursor
   let pageHeight = positionCursor + window.innerHeight; //height visible part pages
-  if (pageHeight <= document.body.offsetHeight) {
+  if (pageHeight < document.body.offsetHeight) {
     this.document.getElementById("section14HideButton").style.display = "none";
   } else {
-    this.document.getElementById("section14HideButton").style.display = "flex";
+    this.document.getElementById("section14HideButton").style.display = "block";
   }
 });
 //Function scroll pages to top

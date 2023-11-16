@@ -5,6 +5,29 @@ body {
     background-size: cover;
 }
 
+.enjoy-css {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 200px;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: none;
+    font: normal normal bold 34px/1 "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: rgba(4, 12, 242, 1);
+    text-decoration: underline;
+    text-align: center;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    letter-spacing: 6px;
+    background: #d5d802;
+    -webkit-box-shadow: 0 0 6px 11px rgba(0, 0, 0, 0.3) inset;
+    box-shadow: 0 0 6px 11px rgba(0, 0, 0, 0.3) inset;
+    text-shadow: 5px 3px 7px rgba(0, 0, 0, 0.2);
+}
+
 button {
     cursor: pointer;
     border: none;
@@ -202,19 +225,17 @@ button {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+    margin-top: 100px;
+    cursor: pointer;
 }
 
 #section14HideButton {
     text-align: center;
     width: 400px;
     height: 50px;
-    cursor: pointer;
     display: none;
-    justify-content: center;
-    align-items: center;
     position: fixed;
-    bottom: 0;
-
+    bottom: 10px;
 }
 
 #section15 {
