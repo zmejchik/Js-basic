@@ -25,7 +25,7 @@ To view the result, you need to follow the link.
 + Two Java script files are used - JavaScript files are located in the 'JS' folder.
 * The first file contains solutions for 18 tasks from the basic section - file **script.js**.
 * The second file contains a solution that utilizes methods of functional programming for a particular
-  task - file **script_task.js**.
+  task - file **script_task3.js**.
 
 
 
