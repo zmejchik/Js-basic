@@ -4,7 +4,7 @@ This is an educational project of the Ш++ course with Frontend.
 
 To view the result, you need to follow the link. 
 
-https://zmejchik.github.io/Js-basic
+[JS BASIC](https://zmejchik.github.io/Js-basic)
 
 
 ## Project overview
@@ -22,9 +22,10 @@ https://zmejchik.github.io/Js-basic
 
 + In the HTML file, there are blocks placed for educational purposes and for educational tasks.
 + Styles: Written in CSS. CSS styles are located in the css directory.
-+ Two Java script files are used.
-++The first file contains solutions for 18 tasks from the basic section.
-++The second file contains a solution that utilizes methods of functional programming for a particular task.
++ Two Java script files are used - JavaScript files are located in the 'JS' folder.
+* The first file contains solutions for 18 tasks from the basic section - file **script.js**.
+* The second file contains a solution that utilizes methods of functional programming for a particular
+  task - file **script_task.js**.
 
 
 
@@ -34,8 +35,6 @@ Here's how to start a project:
 
 + Clone the repository on your local machine.
 
-
-If you want to change the styles, you can work with the style.css file in the css directory.
 
 ## License
 
